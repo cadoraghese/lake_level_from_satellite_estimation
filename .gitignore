@@ -1,6 +1,7 @@
 # Custom
 S3/
-Lakes/
+Lakes/*
+!Lakes/LakeDemo
 utils/credentials.json
 .idea/
 
