@@ -24,10 +24,11 @@ def plot_altitudes(data):
     # plt.legend(ncol=3)
     ax.set_xlabel('Longitude')
     ax.set_ylabel('Latitude')
-    ax.set_zlabel('Altitude')
+    ax.set_zlabel('Altitude (m)')
     plt.title('Altitude at a Specific Latitude and Longitude')
     mng = plt.get_current_fig_manager()
     mng.window.state('zoomed')
+    plt.legend(loc='center right')
     plt.show()
 
 
@@ -93,7 +94,7 @@ def collect_data(lake_name, start, end):
         df_lake.loc[df_lake['date'].isin([f"{date:%Y-%m-%d}"]), key] = np.mean(alt)
 
     df_lake.drop(columns=df_lake.columns[df_lake.replace(-9999, np.nan).count() <= 5].values, axis=1, inplace=True)
-    df_lake.to_csv(f'Lakes/{lake_name}/{lake_name}_new_{altimetry_method}.csv', index=False)
+    df_lake.to_csv(f'Lakes/{lake_name}/{lake_name}_{altimetry_method}.csv', index=False)
 
     plot_altitudes(plot_data)
 

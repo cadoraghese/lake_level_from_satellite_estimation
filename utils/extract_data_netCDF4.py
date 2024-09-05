@@ -4,7 +4,7 @@ import netCDF4
 import datetime
 
 
-def extract_data_sentinel(name, method='alt1'):
+def extract_data_sentinel(name, method='elev'):
     file_path = f'S3/{name}/standard_measurement.nc'
 
     # Open the netCDF file with netCDF4
